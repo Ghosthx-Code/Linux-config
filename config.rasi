@@ -1,0 +1,55 @@
+/**
+ * Simple Customizable Rofi Config
+ * Save this in ~/.config/rofi/config.rasi
+ */
+
+configuration {
+    /* --- General Settings --- */
+    modi:                "drun,run,window"; // Modes to show
+    display-drun:        " ";              // Icon for App Launcher (requires Nerd Font)
+    display-run:         " ";              // Icon for Run Mode
+    display-window:      " ";              // Icon for Window Switcher
+    show-icons:          true;              // Enable application icons
+    terminal:            "qterminal";       // The terminal app Rofi will use
+    drun-display-format: "{name}";          // Only show the app name
+    font:                "JetBrainsMono Nerd Font 12"; // Your system font
+}
+
+/* --- Global Variable Section: Change colors here! --- */
+* {
+    bg:      #1e1e2e;  /* Dark background color */
+    fg:      #cdd6f4;  /* General text color */
+    accent:  #89b4fa;  /* Primary color (Blue) for borders/selection */
+    urgent:  #f38ba8;  /* Red for urgent items */
+    
+    background-color: @bg;
+    text-color:       @fg;
+}
+
+/* --- Window Layout --- */
+window {
+    width:            30%;     /* Make it a small centered box */
+    location:         center;  /* Can be: north, south, east, west, center */
+    anchor:           center;
+    border:           2px;
+    border-radius:    10px;    /* Rounded corners */
+    border-color:     @accent;
+    padding:          15px;
+}
+
+/* --- Input Bar (Search Bar) --- */
+inputbar {
+    children: [ prompt, entry ]; /* Show icon then the text field */
+    spacing: 10px;
+}
+
+prompt {
+    text-color: @accent; /* Color the search icon */
+}
+
+/* --- Selection Highlighting --- */
+element selected {
+    background-color: @accent; /* Background of the selected app */
+    text-color:       @bg;     /* Text color when selected */
+    border-radius:    6px;     /* Subtle rounding on selection bar */
+}
