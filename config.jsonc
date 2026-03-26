@@ -1,0 +1,47 @@
+{
+    "layer": "top", // Bar stays on top of windows
+    "position": "bottom", // Can be top, bottom, left, right
+    // "height": 34, 
+    // "spacing": 4, 
+    // "width": 1000,
+
+    // Module Placement
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["clock"], // you can add network, battery, etc to anything that says modules
+    "modules-right": ["pulseaudio", "network"],
+
+    // Module Settings
+    "clock": {
+        "format": "{:%H:%M}", // 24-hour time
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-icons": ["", "", ""]
+    },
+    
+    "wlr/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "active": "",
+            "default": ""
+        },
+        "sort-by-number": true
+    },
+    "network": {
+    "interface": "wlan1", // Optional: force a specific interface, to check it is ip -c a
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "    {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}   ",
+    "format-linked": "{ifname} (No IP)   ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click-right": "nm-connection-editor" // Opens GUI on right click
+    }
+}
